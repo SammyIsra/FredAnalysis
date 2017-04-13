@@ -1,0 +1,2 @@
+export const FETCHED_SENTIMENT = 'FETCHED_SENTIMENT';
+export const FETCH_FAILED = 'FETCH_FAILED';
