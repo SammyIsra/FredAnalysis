@@ -1,0 +1,11 @@
+.Bar {
+    width: 100%;
+    height: 2px;
+
+}
+
+.bar-loaded {
+    height: 100%;
+    width: 76%;
+    background-color: #ff0000;
+}
