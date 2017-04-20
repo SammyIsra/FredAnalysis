@@ -3,8 +3,10 @@ import {BrowserRouter as Router,
         Route} from 'react-router-dom';
 
 import Report from './Report';
+import ReportList from './ReportList';
 
 import '../style/App.css';
+
 
 class App extends React.Component {
 
@@ -14,6 +16,7 @@ class App extends React.Component {
         <div className="container">
           <h1>Fred Report Analysis</h1>
           <Route exact path="/report/:id" component={Report} />
+          <Route exact path="/" component={ReportList} />
           <p>Bug somewhere? Make sure to tell Sammy!</p>
         </div>
       </Router>

@@ -2,7 +2,8 @@ import axios from 'axios';
 
 import {
     FETCHED_SENTIMENT,
-    FETCH_FAILED 
+    FETCH_FAILED,
+    FETCHED_ALL_SENTIMENTS 
 } from './types';
 
 const defaultTone = {
@@ -95,26 +96,40 @@ const defaultTone = {
     }
 } 
 
+//Fetch one full report from server, given an id
 export function fetchSentimentsFromID(sentimentID){
     //temporal: return a static sentiment analysis
     return function(dispatch){
         axios.get(`http://fred-analyze.us-east-1.elasticbeanstalk.com/api/sentiment/${sentimentID}`)
         .then(function(data){
-            console.log(data);
             dispatch({
                 type: FETCHED_SENTIMENT,
                 payload: data.data
             })
         })
         .catch(function(data){
-            console.log("Error?");
-            console.log(data);
             dispatch({
                 type: FETCH_FAILED,
                 payload: defaultTone
             })
         })
     }
-    
-    
+}
+
+//Get a list of short reports (only gets id, text, date, and who analyzed)
+export function fetchAllShortSentiments(){
+    return function(dispatch){
+        axios.get('http://fred-analyze.us-east-1.elasticbeanstalk.com/api/sentiment')
+        .then(function(data){
+            dispatch({
+                type: FETCHED_ALL_SENTIMENTS,
+                payload: data.data.reports
+            });
+        })
+        .catch(function(data){
+            dispatch({type: FETCH_FAILED,
+            payload: defaultTone
+            });
+        });
+    }
 }

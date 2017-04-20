@@ -1,6 +1,6 @@
 import {
     FETCHED_SENTIMENT,
-    FETCH_FAILED
+    FETCH_FAILED,
 } from '../actions/types';
 
 export default function(state = {}, action){
@@ -10,16 +10,16 @@ export default function(state = {}, action){
             return {
                 report: action.payload.analysis,
                 text: action.payload.text,
-                has_sentiment: true
+                hasSentiment: true
             };
         case FETCH_FAILED:
             return {
                 failed: true,
-                has_sentiment: false
-            }
+                hasSentiment: false
+            };
         default:
             return {
-                has_sentiment: false
+                hasSentiment: false
             };
     }
 }

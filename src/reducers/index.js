@@ -1,8 +1,10 @@
 import {combineReducers} from 'redux';
-import sentimentReducer from './sentiment';
+import selectedSentimentReducer from './selected_sentiment';
+import sentimentListReducer from './sentiment_list';
 
 const rootReducer = combineReducers({
-    sentiment: sentimentReducer
+    selectedSentiment: selectedSentimentReducer,
+    sentimentList: sentimentListReducer
 });
 
 export default rootReducer;

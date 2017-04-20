@@ -27,12 +27,12 @@ class ReportWrap extends React.Component {
     }
 
     renderReport(){
-        if(this.props.sentiment.has_sentiment)
+        if(this.props.sentiment.hasSentiment)
             return <Report report={this.props.sentiment.report} />;
         else if(this.props.sentiment.failed)
             return "Failed!";
         else
-            return "Loading";
+            return "Loading...";
     }
 
     render(){
@@ -46,7 +46,7 @@ class ReportWrap extends React.Component {
 
 function mapStateToProps(state){
   return {
-    sentiment: state.sentiment
+    sentiment: state.selectedSentiment
   };
 }
 
