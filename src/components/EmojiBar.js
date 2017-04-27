@@ -27,7 +27,7 @@ class EmojiBar extends React.Component {
 
         //remember, className is received from props
         return (
-            <div className={`Bar ${className} ${tone}`} > 
+            <div className={`EmojiBar ${className} ${tone}`} > 
                 <div className="bar-loaded">{loadedBar}</div>
             </div>
         );
