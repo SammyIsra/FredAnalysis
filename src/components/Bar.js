@@ -6,6 +6,8 @@ class Bar extends React.Component {
 
     render(){
 
+        const {score, tone, className} = this.props;
+
         const colorDict = {
             anger: '#ff0000',
             disgust: '#6600cc',
@@ -15,11 +17,13 @@ class Bar extends React.Component {
         }
 
         const barStyle = {
-            width: this.props.score*100 + '%',
-            backgroundColor: colorDict[this.props.tone] || '#000099'
+            width: score*100 + '%',
+            backgroundColor: colorDict[tone] || '#000099'
         }
+
+        //remember, className is received from props
         return (
-            <div className={`Bar ${this.props.className}`} >
+            <div className={`Bar ${className}`} > 
                 <div className="bar-loaded" style={barStyle} />
             </div>
         );
