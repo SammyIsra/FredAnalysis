@@ -6,7 +6,7 @@ import ToneCategory from './ToneCategory';
 import * as actions from '../actions';
 
 //Actual Component
-function Report({report}){
+function Report({report, text}){
 
     const categories = report.document_tone.tone_categories.map(function(category){
         return <ToneCategory key={category.category_id} category={category} />;
@@ -14,7 +14,8 @@ function Report({report}){
 
     return (
         <div className="Report twelve columns">
-           {categories}
+            <p id="text-analyzed" className="quote">{text}</p>
+            {categories}
         </div>
     );
 }
@@ -28,7 +29,7 @@ class ReportWrap extends React.Component {
 
     renderReport(){
         if(this.props.sentiment.hasSentiment)
-            return <Report report={this.props.sentiment.report} />;
+            return <Report report={this.props.sentiment.report} text={this.props.sentiment.text} />;
         else if(this.props.sentiment.failed)
             return "Failed!";
         else
@@ -36,6 +37,7 @@ class ReportWrap extends React.Component {
     }
 
     render(){
+        console.log(this.props);
         return (
             <div>
                 {this.renderReport()}
@@ -49,9 +51,6 @@ function mapStateToProps(state){
     sentiment: state.selectedSentiment
   };
 }
-
-
-
 
 
 export default connect(mapStateToProps, actions)(ReportWrap)

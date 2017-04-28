@@ -30,3 +30,14 @@
 .name {
   font-size: 1.3em;
 }
+
+.quote {
+  font-size: 1.5em;
+  font-style: italic;
+  display: block;
+  margin-left: 10px;
+  border-left: solid 4px lightgrey;
+  padding-left: 10px;
+  color: #4f4f4f;
+
+}
