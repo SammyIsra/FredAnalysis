@@ -12,8 +12,6 @@ class ReportList extends React.Component {
         this.props.fetchAllShortSentiments();
     }
 
-    
-
     listOfReports(){
 
         function truncateText(text){
@@ -22,8 +20,6 @@ class ReportList extends React.Component {
             else
                 return text.slice(0,247)+"...";
         }
-
-        console.log(this.props.reports);
 
         if(this.props.reports.hasList){
             return this.props.reports.reportList.map(function(item){

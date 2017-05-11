@@ -4,12 +4,13 @@ class EmojiBar extends React.Component {
 
     render(){
 
+        //Extract wanted values
         const {score, tone, className} = this.props;
 
-        console.log(this.props);
-
+        //Get the 'efective' score
         const efectiveScore = Math.round(100*score);
 
+        //Declare the emoji dictionary 
         const emojiDict = {
             joy: '😂',
             anger: '😡',
@@ -18,12 +19,12 @@ class EmojiBar extends React.Component {
             sadness: '😢'
         }
 
+        //Fill the loaded bar
         let loadedBar = "";
         for(var i = 0 ; i < efectiveScore ; i++){
             loadedBar += emojiDict[tone];
             console.log(emojiDict[tone]);
-        }
-            
+        }      
 
         //remember, className is received from props
         return (

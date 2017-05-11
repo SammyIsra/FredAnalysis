@@ -6,8 +6,10 @@ class Bar extends React.Component {
 
     render(){
 
+        //Extract required values
         const {score, tone, className} = this.props;
 
+        //Declare the color dict
         const colorDict = {
             anger: '#ff0000',
             disgust: '#6600cc',
@@ -16,6 +18,7 @@ class Bar extends React.Component {
             sadness: '#4da6ff'
         }
 
+        //CSS style of the loaded bar
         const barStyle = {
             width: score*100 + '%',
             backgroundColor: colorDict[tone] || '#000099'

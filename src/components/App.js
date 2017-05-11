@@ -17,7 +17,7 @@ class App extends React.Component {
           <h1>Fred Report Analysis</h1>
           <Route exact path="/report/:id" component={Report} />
           <Route exact path="/" component={ReportList} />
-          <p>Bug somewhere? Better call Sammy!</p>
+          <p className="label">Bug somewhere? Better call Sammy!</p>
         </div>
       </Router>
     );
