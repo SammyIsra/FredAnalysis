@@ -1,0 +1,23 @@
+.ReportListItem {
+    list-style: none outside;
+    padding-left: 5px;
+}
+
+.ReportListItem * {
+    text-decoration: none;
+    color: #333333;
+    font-size: 1.4em;
+    text-overflow: ellipsis;
+}
+
+.ReportListItem ::before {
+    content: '¬ ';
+    font-size: 1.4em;
+    line-height: normal;
+    color: #969696;
+}
+
+.ReportListItem :hover {
+    border-bottom: 1px solid #333333;
+    color: #333333;
+}
