@@ -6,6 +6,8 @@ import {
     FETCHED_ALL_SENTIMENTS 
 } from './types';
 
+const baseUrl = "https://fred-sentiment-analysis.herokuapp.com";
+
 const defaultTone = {
     "document_tone": {
         "tone_categories": [
@@ -100,7 +102,7 @@ const defaultTone = {
 export function fetchSentimentsFromID(sentimentID){
     //temporal: return a static sentiment analysis
     return function(dispatch){
-        axios.get(`http://fred-analyze.us-east-1.elasticbeanstalk.com/api/sentiment/${sentimentID}`)
+        axios.get(`${baseUrl}/api/sentiment/${sentimentID}`)
         .then(function(data){
             dispatch({
                 type: FETCHED_SENTIMENT,
@@ -119,7 +121,7 @@ export function fetchSentimentsFromID(sentimentID){
 //Get a list of short reports (only gets id, text, date, and who analyzed)
 export function fetchAllShortSentiments(){
     return function(dispatch){
-        axios.get('http://fred-analyze.us-east-1.elasticbeanstalk.com/api/sentiment')
+        axios.get(`${baseUrl}/api/sentiment`)
         .then(function(data){
             dispatch({
                 type: FETCHED_ALL_SENTIMENTS,
